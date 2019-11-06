@@ -41,6 +41,10 @@ set laststatus=2
 " Don't show old line
 set noshowmode
 
+" nerdtree "
+" load nerdtree automatically
+autocmd vimenter * NERDTree
+
 """"""""""""""""
 " CUSTOM STUFF "
 """"""""""""""""
