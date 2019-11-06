@@ -42,8 +42,11 @@ set laststatus=2
 set noshowmode
 
 " nerdtree "
-" load nerdtree automatically
+" load nerdtree automatically but go editing window
 autocmd vimenter * NERDTree
+autocmd vimenter * wincmd p
+" close vim if nerdtree is only window left
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
 """"""""""""""""
 " CUSTOM STUFF "
