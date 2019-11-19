@@ -101,3 +101,9 @@ set spell
 " Set misspelled words to be red and underlined
 hi clear SpellBad
 hi SpellBad cterm=underline ctermfg=yellow ctermbg=NONE
+
+" Graphical menu for tab completion
+set wildmenu
+
+" Turn off search highlight
+nnoremap <leader><space> :nohlsearch<CR>
