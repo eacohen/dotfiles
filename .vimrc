@@ -16,6 +16,8 @@ Plug 'NLKNguyen/papercolor-theme'
 Plug 'https://github.com/hashivim/vim-terraform.git'
 " Jenkinsfile highlighting
 Plug 'martinda/Jenkinsfile-vim-syntax'
+" Powershell highlighting
+Plug 'PProvost/vim-ps1'
 
 " Better status line
 Plug 'itchyny/lightline.vim'
@@ -24,6 +26,26 @@ Plug 'itchyny/lightline.vim'
 Plug 'scrooloose/nerdtree'
 " List ends here. Plugins become visible to Vim after this call.
 call plug#end()
+
+""""""""""""""
+" KEY REMAPS "
+""""""""""""""
+
+" Don't time out on remaps
+set notimeout
+" ...but still time out for key codes
+" (prevents esc from hanging forever)
+set ttimeout
+" Make keycode timeouts as quick as possible
+" (makes esc quicker)
+set ttimeoutlen=0
+
+" Set the leader
+noremap <Space> <Nop>
+let mapleader = " "
+
+" Turn off search highlight
+nnoremap <leader><space> :nohlsearch<CR>
 
 """"""""""""""""""
 " PLUGIN OPTIONS "
@@ -104,6 +126,3 @@ hi SpellBad cterm=underline ctermfg=yellow ctermbg=NONE
 
 " Graphical menu for tab completion
 set wildmenu
-
-" Turn off search highlight
-nnoremap <leader><space> :nohlsearch<CR>

@@ -24,3 +24,6 @@ export REQUESTS_CA_BUNDLE=/etc/ssl/certs/ca-certificates.crt
 
 # Allow better colors and visual features in applications 
 export TERM=xterm-256color
+
+# Make timeouts quicker
+KEYTIMEOUT=1
