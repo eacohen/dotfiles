@@ -40,12 +40,20 @@ set ttimeout
 " (makes esc quicker)
 set ttimeoutlen=0
 
+" Make it easier to go to beginning/end of line. H and L are kinda useless
+noremap H ^
+noremap L $
+
 " Set the leader
 noremap <Space> <Nop>
 let mapleader = " "
 
-" Turn off search highlight
+" Turn off search highlight (give back <space>)
 nnoremap <leader><space> :nohlsearch<CR>
+" Open .vimrc in split (so you can add/+ to it) 
+nnoremap <leader>+ :sp $MYVIMRC<CR>
+" Toggle ($)pell
+nnoremap <leader>$ :set spell!<CR>
 
 """"""""""""""""""
 " PLUGIN OPTIONS "
@@ -117,6 +125,10 @@ set number relativenumber
 " Line number style
 hi LineNr ctermfg=244 ctermbg=236
 hi CursorLineNr ctermfg=226 ctermbg=240
+
+" Show trailing whitespace
+highlight TrailingWhitespace ctermbg=52
+match TrailingWhitespace /\s\+$/
 
 " Turn on spell check
 set spell
