@@ -50,7 +50,7 @@ let mapleader = " "
 
 " Turn off search highlight (give back <space>)
 nnoremap <leader><space> :nohlsearch<CR>
-" Open .vimrc in split (so you can add/+ to it) 
+" Open .vimrc in split (so you can add/+ to it)
 nnoremap <leader>+ :sp $MYVIMRC<CR>
 " Toggle ($)pell
 nnoremap <leader>$ :set spell!<CR>
@@ -66,7 +66,7 @@ let g:terraform_fmt_on_save=1
 
 " lightline "
 
-" Helps with enabling 
+" Helps with enabling
 set laststatus=2
 " Don't show old line
 set noshowmode
@@ -78,13 +78,12 @@ autocmd vimenter * wincmd p
 " close vim if nerdtree is only window left
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
-""""""""""""""""
-" CUSTOM STUFF "
-""""""""""""""""
+""""""""""
+" BASICS "
+""""""""""
 
-" Colorscheme
-set background=dark
-colorscheme PaperColor
+"Ignore junk files
+set wildignore+=*.o,*.obj,*.class,*.swp,*.pyc
 
 " IN SYSTEM VIMRC Allow hidden buffers
 "   set hidden
@@ -92,14 +91,6 @@ colorscheme PaperColor
 " IN SYSTEM VIMRC Enabling filetype support provides filetype-specific indenting,
 "   syntax highlighting, omni-completion and other useful settings.
 "   filetype plugin indent on
-
-" Allow better colors
-if !has('gui_running')
-  set t_Co=256
-endif
-
-" Make split bar look better
-set fillchars+=vert:│
 
 " Minimal automatic indenting for any filetype.
 set autoindent
@@ -115,6 +106,30 @@ set softtabstop=4
 " Highlight all search matches
 set hlsearch
 
+" Graphical menu for tab completion
+set wildmenu
+
+" Only used for xterm but whatever
+set title
+
+" Fix memory leak with matching
+autocmd BufWinLeave * call clearmatches()
+
+""""""""""""""""
+" CUSTOM STUFF "
+""""""""""""""""
+" Colorscheme
+set background=dark
+colorscheme PaperColor
+
+" Allow better colors
+if !has('gui_running')
+  set t_Co=256
+endif
+
+" Make split bar look better
+set fillchars+=vert:│
+
 " CursorLine is visible
 " set cursorline
 " hi clear CursorLine
@@ -129,12 +144,10 @@ hi CursorLineNr ctermfg=226 ctermbg=240
 " Show trailing whitespace
 highlight TrailingWhitespace ctermbg=52
 match TrailingWhitespace /\s\+$/
+autocmd BufWinEnter * match TrailingWhitespace /\s\+$/
+autocmd InsertEnter * match TrailingWhitespace /\s\+\%#\@<!$/
+autocmd InsertLeave * match TrailingWhitespace /\s\+$/
 
-" Turn on spell check
-set spell
-" Set misspelled words to be red and underlined
+" Set misspelled words styling
 hi clear SpellBad
 hi SpellBad cterm=underline ctermfg=yellow ctermbg=NONE
-
-" Graphical menu for tab completion
-set wildmenu
