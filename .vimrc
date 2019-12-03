@@ -44,6 +44,13 @@ set ttimeoutlen=0
 noremap H ^
 noremap L $
 
+" Map J and K to scroll
+noremap J <C-e>
+noremap K <C-y>
+" Replace old J and K
+noremap M J
+noremap <leader>k K
+
 " Set the leader
 noremap <Space> <Nop>
 let mapleader = " "
