@@ -106,11 +106,27 @@ set softtabstop=4
 " Highlight all search matches
 set hlsearch
 
+" Set minimum lines above/below cursor
+set scrolloff=5
+
 " Graphical menu for tab completion
 set wildmenu
+" Initially unix-like completion, then vim default
+set wildmode=longest:full,full
+
+"Change directory to currently open file
+set autochdir
+
+"Don't redraw while running macros (faster)
+set lazyredraw
 
 " Only used for xterm but whatever
 set title
+
+" Allow better colors
+if !has('gui_running')
+  set t_Co=256
+endif
 
 " Fix memory leak with matching
 autocmd BufWinLeave * call clearmatches()
@@ -122,10 +138,10 @@ autocmd BufWinLeave * call clearmatches()
 set background=dark
 colorscheme PaperColor
 
-" Allow better colors
-if !has('gui_running')
-  set t_Co=256
-endif
+" Only wrap on 'good' characters for wrapping
+set linebreak
+" Change break style
+set showbreak=\ ↪
 
 " Make split bar look better
 set fillchars+=vert:│
