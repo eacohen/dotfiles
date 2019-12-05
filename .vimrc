@@ -44,9 +44,9 @@ set ttimeoutlen=0
 noremap H ^
 noremap L $
 
-" Map J and K to scroll
-noremap J <C-e>
-noremap K <C-y>
+" Map J and K to quick scroll
+noremap <silent> J <C-e>:redraw<CR><C-e>
+noremap <silent> K <C-y>:redraw<CR><C-y>
 " Replace old J and K
 noremap M J
 noremap <leader>k K

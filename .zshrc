@@ -5,6 +5,17 @@
 #   Sorin Ionescu <sorin.ionescu@gmail.com>
 #
 
+# If not running interactively, do not do anything
+[[ $- != *i* ]] && return
+if [[ -z "$TMUX" ]] ;then
+    ID="$( tmux ls | grep -vm1 attached | cut -d: -f1 )" # get the id of a deattached session
+    if [[ -z "$ID" ]] ;then # if not available create a new one
+        { tmux new-session && exit } # exit terminal when exiting tmux
+    else
+        { tmux attach-session -t "$ID" && exit } # if available attach to it
+    fi
+fi
+
 # Source Prezto.
 if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
   source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
