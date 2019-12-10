@@ -61,8 +61,10 @@ nnoremap <leader><space> :nohlsearch<CR>
 nnoremap <leader>+ :sp $MYVIMRC<CR>
 " Toggle <$>pell
 nnoremap <leader>$ :set spell!<CR>
-" nerd<t>ree
-nnoremap <leader>t :NERDTreeToggle<CR>
+" Le<t>'s see the nerd<t>ree!
+nnoremap <leader>t :NERDTreeToggle<CR>:wincmd p<CR>
+" <T>o nerd<t>ree!!!
+nnoremap <leader>T :NERDTreeFocus<CR>
 
 """"""""""""""""""
 " PLUGIN OPTIONS "
@@ -82,8 +84,8 @@ set noshowmode
 
 " nerdtree "
 " load nerdtree automatically but go editing window
-autocmd vimenter * NERDTree
-autocmd vimenter * wincmd p
+" autocmd vimenter * NERDTree
+" autocmd vimenter * wincmd p
 " close vim if nerdtree is only window left
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
