@@ -59,8 +59,10 @@ let mapleader = " "
 nnoremap <leader><space> :nohlsearch<CR>
 " Open .vimrc in split (so you can add/+ to it)
 nnoremap <leader>+ :sp $MYVIMRC<CR>
-" Toggle ($)pell
+" Toggle <$>pell
 nnoremap <leader>$ :set spell!<CR>
+" nerd<t>ree
+nnoremap <leader>t :NERDTreeToggle<CR>
 
 """"""""""""""""""
 " PLUGIN OPTIONS "
