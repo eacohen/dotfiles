@@ -24,12 +24,20 @@ Plug 'itchyny/lightline.vim'
 
 " Directory tree
 Plug 'scrooloose/nerdtree'
+
+" Integrate window navigation with tmux
+Plug 'christoomey/vim-tmux-navigator'
+
 " List ends here. Plugins become visible to Vim after this call.
 call plug#end()
 
 """"""""""""""
 " KEY REMAPS "
 """"""""""""""
+
+" Set the leader
+noremap <Space> <Nop>
+let mapleader = " "
 
 " Don't time out on remaps
 set notimeout
@@ -45,15 +53,11 @@ noremap H ^
 noremap L $
 
 " Map J and K to quick scroll
-noremap <silent> J <C-e>:redraw<CR><C-e>
-noremap <silent> K <C-y>:redraw<CR><C-y>
+nnoremap <silent> J <C-e>:redraw<CR><C-e>
+nnoremap <silent> K <C-y>:redraw<CR><C-y>
 " Replace old J and K
-noremap M J
-noremap <leader>k K
-
-" Set the leader
-noremap <Space> <Nop>
-let mapleader = " "
+nnoremap M J
+nnoremap <leader>k K
 
 " Turn off search highlight (give back <space>)
 nnoremap <leader><space> :nohlsearch<CR>
