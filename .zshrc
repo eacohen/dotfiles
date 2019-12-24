@@ -42,5 +42,3 @@ KEYTIMEOUT=1
 # Use custom vi bindings
 bindkey -M vicmd 'L' vi-end-of-line
 bindkey -M vicmd 'H' vi-first-non-blank
-
-export PATH="$PATH:/opt/mssql-tools/bin"
