@@ -182,3 +182,10 @@ autocmd InsertLeave * match TrailingWhitespace /\s\+$/
 " Set misspelled words styling
 hi clear SpellBad
 hi SpellBad cterm=underline ctermfg=yellow ctermbg=NONE
+
+""""""""""""""
+" MISC FIXES "
+""""""""""""""
+
+" Ruby files are slow with new engine
+set regexpengine=1
