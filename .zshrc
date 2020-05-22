@@ -31,6 +31,16 @@ if [ $commands[terraform] ]; then
   complete -o nospace -C $commands[terraform] terraform
 fi
 
+source <(kubectl completion zsh)
+alias k=kubectl
+# not sure if this works
+#alias complete -F __start_kubectl k
+
+export DOCKER_HOST=tcp://localhost:2375
+alias dk=docker
+alias dkc='docker container'
+alias dki='docker image'
+
 export REQUESTS_CA_BUNDLE=/etc/ssl/certs/ca-certificates.crt
 
 # Allow better colors and visual features in applications
@@ -42,3 +52,14 @@ KEYTIMEOUT=1
 # Use custom vi bindings
 bindkey -M vicmd 'L' vi-end-of-line
 bindkey -M vicmd 'H' vi-first-non-blank
+
+# Bigger history
+SAVEHIST=100000
+HISTSIZE=$SAVEHIST
+
+# aliases
+
+# help zsh
+alias helpz='run-help'
+alias hz='run-help'
+alias jenkins='java -jar /home/ecohen/tools/jenkins/jenkins-cli.jar -s http://192.168.87.23/ -auth @/home/ecohen/tools/jenkins/creds'
