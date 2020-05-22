@@ -191,4 +191,5 @@ hi SpellBad cterm=underline ctermfg=yellow ctermbg=NONE
 set regexpengine=1
 
 " Turn on tabs for rego files
-autocmd FileType rego setlocal noexpandtab
+autocmd FileType rego setlocal noexpandtab 
+autocmd FileType rego set syntax=conf
