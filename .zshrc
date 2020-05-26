@@ -62,4 +62,3 @@ HISTSIZE=$SAVEHIST
 # help zsh
 alias helpz='run-help'
 alias hz='run-help'
-alias jenkins='java -jar /home/ecohen/tools/jenkins/jenkins-cli.jar -s http://192.168.87.23/ -auth @/home/ecohen/tools/jenkins/creds'
