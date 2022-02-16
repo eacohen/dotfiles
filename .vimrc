@@ -18,6 +18,8 @@ Plug 'https://github.com/hashivim/vim-terraform.git'
 Plug 'martinda/Jenkinsfile-vim-syntax'
 " Powershell highlighting
 Plug 'PProvost/vim-ps1'
+" Golang stuff
+"Plug 'fatih/vim-go' , { 'do': ':GoUpdateBinaries' }
 
 " Better status line
 Plug 'itchyny/lightline.vim'

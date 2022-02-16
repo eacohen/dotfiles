@@ -31,17 +31,37 @@ if [ $commands[terraform] ]; then
   complete -o nospace -C $commands[terraform] terraform
 fi
 
+source <(helm completion zsh)
 source <(kubectl completion zsh)
 alias k=kubectl
-# not sure if this works
-#alias complete -F __start_kubectl k
+
+
+function kn {
+  k config set-context --current --namespace="$1"
+}
+
+function _kn {
+  local line
+
+  _arguments
+}
+compdef _kn kn
+
+
+alias kc="kubie ctx"
+#alias kn="kubie ns"
+alias kb="kubie"
+source ~/.kube/kubie.bash
 
 export DOCKER_HOST=tcp://localhost:2375
 alias dk=docker
 alias dkc='docker container'
 alias dki='docker image'
 
+alias chrome="/c/Program\ Files\ \(x86\)/Google/Chrome/Application/chrome.exe"
+
 export REQUESTS_CA_BUNDLE=/etc/ssl/certs/ca-certificates.crt
+export SSL_CERT_FILE=/etc/ssl/certs/ca-certificates.crt
 
 # Allow better colors and visual features in applications
 export TERM=xterm-256color
@@ -62,3 +82,13 @@ HISTSIZE=$SAVEHIST
 # help zsh
 alias helpz='run-help'
 alias hz='run-help'
+
+# azure
+source /usr/local/etc/bash_completion.d/az
+
+autoload -U +X bashcompinit && bashcompinit
+complete -o nospace -C /home/ecohen/.local/bin/vault vault
+
+autoload -Uz compinit
+source /home/ecohen/.jfrog/jfrog_zsh_completion
+
